@@ -1,0 +1,70 @@
+* { font-family: "Helvetica Neue", Helvetica, Arial; }
+
+.container {
+	margin: 6px auto;
+	width: 90%;
+	}
+
+.left { 
+	float: left;
+	position: absolute;
+}
+.right { float: right; }
+.thin { font-weight: 200; }
+.italic { font-style: italic; }
+.underline { text-decoration: underline; }
+
+header.intro { margin-bottom: 30px; }
+
+.reports > * { font-size: 12px; }
+
+.card-title { 
+	margin-bottom: 10px;
+	table-layout: fixed; 
+	border-collapse:collapse;
+	width: 100%;
+}
+
+.card-content { margin-bottom: 30px; }
+
+.agency {
+	font-weight: 700;
+	height: 20px;
+	font-size: 12px;
+	padding-left: 10px;
+	padding-right: 30px;
+	background-color: #000;
+	color: #FFF;
+}
+
+.continuum {
+	font-weight: 700;
+	height: 20px;
+	font-size: 12px;	
+	padding-left: 10px;
+	padding-right: 30px;
+	background-color: #f2bced;
+}
+
+.program {
+	font-weight: 700;
+	height: 20px;
+	font-size: 12px;	
+	padding-left: 10px;
+	padding-right: 30px;
+	background-color: #bce9f2;
+}
+
+.typecode {
+	font-style: italic;
+	height: 20px;
+	font-size: 12px;	
+	padding-left: 10px;
+	padding-right: 30px;
+}
+
+.fieldname {
+	font-weight: 700;
+	padding-left: 10px;
+	padding-right: 30px;
+}

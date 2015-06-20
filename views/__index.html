@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/style.css">
+	<script type="text/javascript" src="/static/main.js"></script>
+</head>
+<body>
+<div class="container">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-5">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><b>SAFE HARBORS</b></a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
+				<p class="h4 navbar-text navbar-right">DATA QUALITY REPORT</p>
+			</div>
+		</div>
+	</nav>
+	<div class="col-md-5">
+		<div class="placeholder">
+			<div class="projectinfo">
+				<div class="h3 text-left">{{.ProgramName}}</div>
+				<div class="h5 text-left">{{.Agency}}</div>
+			</div>
+			<!-- <div class="qscore">
+				<div class="h3 text-center">{{score .QualityScore 0}}</div>
+				<div class="h6 text-center">Quality Score</div>
+			</div> -->
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+	 				<th></th>
+	 				<th></th>
+				</tr>
+			</thead>
+			<tbody>			
+				<tr>	
+					<td><b>Program Type</b></td>
+					<td class="text-center">{{.ProgramType}}</td>
+				</tr>				
+				<tr>	
+					<td><b>Target Pop</b></td>
+					<td class="text-center">{{comma .TargetPops}}</td>
+				</tr>
+				<tr>	
+					<td><b>Number of Beds</b></td>
+					<td class="text-center">{{.NumberBeds}}</td>
+				</tr>
+				<tr>	
+					<td><b>Number of Units</b></td>
+					<td class="text-center">{{.NumberUnits}}</td>
+				</tr>								
+				<tr>
+					<td><b>Clients Served</b></td>
+					<td class="text-center qnum">{{.ServedClients}}</td>
+				</tr>
+				<tr>
+					<td><b>Clients Entered</b></td>
+					<td class="text-center qnum">{{.NewClients}}</td>
+				</tr>
+				<tr>
+					<td><b>Clients Exited</b></td>
+					<td class="text-center qnum">{{.ExitedClients}}</td>
+				</tr>
+
+				<tr>	
+					<td><b>Households Served</b></td>
+					<td class="text-center qnum">{{.ServedHouseholds}}</td>
+				</tr>
+				<tr>	
+					<td><b>Bed Utilization</b></td>
+					<td class="text-center qnum">{{rate .ServedClients .NumberBeds}}%</td>
+				</tr>
+				<tr>	
+					<td><b>Unit Utilization</b></td>
+					<td class="text-center qnum">{{rate .ServedHouseholds .NumberUnits}}%</td>
+				</tr>							
+			</tbody>
+		</table>
+	</div>
+	<div class="col-md-7">
+		<div class="placeholder">
+			<div class="qscore">
+				<div class="h3 text-center">{{score .QualityScore 0}}</div>
+				<div class="h6 text-center">Data Score</div>
+			</div>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+	 				<th class="text-center"></th>
+	 				<th class="text-center"></th>
+	 				<th class="text-center"></th>
+				</tr>
+			</thead>
+			<tbody>	
+				<tr>	
+					<td><b>Full Name</b></td>
+					<td class="text-center qnum">{{.FullName}}</td>
+					<td class="text-center qrate">{{rate .FullName .ServedClients}}%</td>
+				</tr>				
+				<tr>	
+					<td><b>Social Security Number</b></td>
+					<td class="text-center qnum">{{.SocialSecurity}}</td>
+					<td class="text-center qrate">{{rate .SocialSecurity .ServedClients}}%</td>
+				</tr>				
+				<tr>	
+					<td><b>Head of Household Status</b></td>
+					<td class="text-center qnum">{{.HeadHousehold}}</td>
+					<td class="text-center qrate">{{rate .HeadHousehold .ServedClients}}%</td>
+				</tr>
+				<tr>	
+					<td><b>Date of Birth</b></td>
+					<td class="text-center qnum">{{.BirthDate}}</td>
+					<td class="text-center qrate">{{rate .BirthDate .ServedClients}}%</td>
+				</tr>				
+				<tr>	
+					<td><b>Race</b></td>
+					<td class="text-center qnum">{{.Race}}</td>
+					<td class="text-center qrate">{{rate .Race .ServedClients}}%</td>
+				</tr>				
+				<tr>	
+					<td><b>Ethnicity</b></td>
+					<td class="text-center qnum">{{.Ethnicity}}</td>
+					<td class="text-center qrate">{{rate .Ethnicity .ServedClients}}%</td>
+				</tr>
+				<tr>	
+					<td><b>Gender</b></td>
+					<td class="text-center qnum">{{.Gender}}</td>
+					<td class="text-center qrate">{{rate .Gender .ServedClients}}%</td>
+				</tr>				
+				<tr>	
+					<td><b>Veteran Status</b></td>
+					<td class="text-center qnum">{{.VeteranStatus}}</td>
+					<td class="text-center qrate">{{rate .VeteranStatus .ServedClients}}%</td>
+				</tr>				
+				<tr>	
+					<td><b>Disability Status</b></td>
+					<td class="text-center qnum">{{.DisabilityStatus}}</td>
+					<td class="text-center qrate">{{rate .DisabilityStatus .ServedClients}}%</td>
+				</tr>				
+				<tr>	
+					<td><b>Substance Abuse Status</b></td>
+					<td class="text-center qnum">{{.SubstanceAbuse}}</td>
+					<td class="text-center qrate">{{rate .SubstanceAbuse .ServedClients}}%</td>
+				</tr>	
+				<tr>	
+					<td><b>Prior Living Situation</b></td>
+					<td class="text-center qnum">{{.PriorLiving}}</td>
+					<td class="text-center qrate">{{rate .PriorLiving .ServedClients}}%</td>
+				</tr>				
+				<tr>	
+					<td><b>Client Zip</b></td>
+					<td class="text-center qnum">{{.ClientZip}}</td>
+					<td class="text-center qrate">{{rate .ClientZip .ServedClients}}%</td>
+				</tr>
+				<tr>	
+					<td><b>Chronically Homeless Status</b></td>
+					<td class="text-center qnum">{{.ChronicityStatus}}</td>
+					<td class="text-center qrate">{{rate .ChronicityStatus .ServedClients}}%</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</body>
